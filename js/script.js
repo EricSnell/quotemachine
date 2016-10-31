@@ -26,12 +26,8 @@ $(document).ready(() => {
   };
 
   const tweetQuote = () => {
-    // AJAX POST request to tweet quote
-    $.ajax({
-      type: 'POST',
-      url: 'https://api.twitter.com/1.1/statuses/update.json',
-      status: quote
-    });
+    const tweetText = $(".quote-text").text();
+    window.open("http://twitter.com/home?status=" + tweetText, "_blank");
   };
 
   // EVENT HANDLERS
@@ -44,5 +40,6 @@ $(document).ready(() => {
     getQuote();
   });
 
+  // WHEN PAGE INITIALLY LOADS
   getQuote();
 });
