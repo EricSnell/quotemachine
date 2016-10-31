@@ -1,8 +1,5 @@
 body {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+  background-color: #69F0AE;
 }
 
 a {
@@ -10,7 +7,10 @@ a {
 }
 
 .quote-box {
-  border: 3px solid black;
+  font-family: "Raleway", sans-serif;
+  color: #333;
+  opacity: 8;
+  border: none;
   background-color: white;
   border-radius: 10px;
   width: 700px;
@@ -18,12 +18,19 @@ a {
   padding: 30px 30px;
 }
 
+.fa-quote-left,
+.fa-quote-right {
+  margin: 0 25px;
+}
+
 .quote-text {
+  font-weight: 500;
   font-size: 48px;
 }
 
 .author-text {
   margin-bottom: 30px;
+  font-size: 20px;
 }
 
 .buttons {
@@ -34,6 +41,7 @@ a {
   margin-right: 30px;
 }
 
-.fa-arrow-right {
-
+.fa-twitter-square:hover,
+.fa-arrow-right:hover {
+  opacity: .8;
 }
