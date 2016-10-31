@@ -1,0 +1,23 @@
+body {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.quote-box {
+  border: 3px solid red;
+  width: 800px;
+  margin: 50px auto;
+  padding: 30px 30px;
+}
+
+.quote-text {
+  font-size: 48px;
+}
+
+.next-button {
+  border: 5px solid blue;
+  margin-left: auto;
+  margin-right: auto;
+}
