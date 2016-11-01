@@ -1,20 +1,26 @@
 $(document).ready(() => {
-  // VARIABLES
+  /*.........VARIABLES.........*/
   let quote;
   let author;
 
-  // FUNCTIONS
+
+  /*.........FUNCTIONS.........*/
   const getQuote = () => {
     // AJAX GET request to quote generating API
     $.ajax({
       type: 'GET',
-      url: 'http://quotes.rest/qod.json?category=inspire'
+      url: 'https://andruxnet-random-famous-quotes.p.mashape.com/?cat=movies',
+      headers: {
+        'X-Mashape-Key': 'wvnbZUbsBNmshdccL6zREcXMC6iNp1xFfihjsnXHXLVLHbTHKA',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json'
+      }
     })
     .done((result) => {
-      quote = result.contents.quotes[0].quote;
-      author = result.contents.quotes[0].author;
-      $(".quote-text").text(quote);
-      $(".author-text").text("-" + author);
+      // Parse the JSON string (object)
+      const res = JSON.parse(result);
+      $(".quote-text").text(res.quote);
+      $(".author-text").text("- " + res.author);
     })
     .fail((error) => {
       console.log("Error: ", error);
@@ -23,11 +29,13 @@ $(document).ready(() => {
 
   const tweetQuote = () => {
     const tweetText = $(".quote-text").text();
-    const
-    window.open("http://twitter.com/home?status=" + '"' + tweetText + '"', "_blank");
+    const tweetMovie = $(".author-text").text();
+
+    window.open("http://twitter.com/home?status=" + '"' + tweetText + '"' + ' ' + tweetMovie, "_blank");
   };
 
-  // EVENT HANDLERS
+
+  /*.........EVENT HANDLERS.........*/
   $(".tweet-button").click(() => {
     tweetQuote();
   });
@@ -36,6 +44,7 @@ $(document).ready(() => {
     getQuote();
   });
 
-  // WHEN PAGE INITIALLY LOADS
+
+  /*.........PAGE LOAD.........*/
   getQuote();
 });

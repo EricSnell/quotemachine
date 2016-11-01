@@ -1,5 +1,5 @@
 body {
-  background-color: #69F0AE;
+  background-image: url('http://maswee.com/i/2016/10/movie-collage-wallpaper.jpg');
 }
 
 a {
@@ -13,9 +13,9 @@ a {
   border: none;
   background-color: white;
   border-radius: 10px;
-  width: 700px;
-  margin: 50px auto;
-  padding: 30px 30px;
+  width: 800px;
+  margin: 150px auto;
+  padding: 30px 40px;
 }
 
 .fa-quote-left,
@@ -29,7 +29,8 @@ a {
 }
 
 .author-text {
-  margin-bottom: 30px;
+  margin: 0px 50px 30px 0px;
+  text-align: right;
   font-size: 20px;
 }
 
@@ -41,7 +42,7 @@ a {
   margin-right: 30px;
 }
 
-.fa-twitter-square:hover,
-.fa-arrow-right:hover {
+.fa-twitter-square:hover {
   opacity: .8;
+  color: #F44336;
 }
