@@ -28,6 +28,10 @@ a {
   font-size: 48px;
 }
 
+.author-container {
+  height: 50px
+}
+
 .author-text {
   margin: 0px 50px 30px 0px;
   text-align: right;
