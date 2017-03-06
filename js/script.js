@@ -1,12 +1,14 @@
 $(document).ready(() => {
-  /*.........VARIABLES.........*/
-  let quote;
-  let author;
+
+  /*=== VARIABLES ===*/
+  let quote
+  let author
 
 
-  /*.........FUNCTIONS.........*/
-  const getQuote = () => {
-    // AJAX GET request to quote generating API
+  /*=== FUNCTIONS ===*/
+  function getQuote() {
+
+    // AJAX GET request to Random Famous Quotes API
     $.ajax({
       type: 'GET',
       url: 'https://andruxnet-random-famous-quotes.p.mashape.com/?cat=movies',
@@ -16,35 +18,39 @@ $(document).ready(() => {
         'Accept': 'application/json'
       }
     })
+
+    // When result is returned, parse the JSON string (object) and display quote
     .done((result) => {
-      // Parse the JSON string (object)
-      const res = JSON.parse(result);
-      $(".quote-text").text(res.quote);
-      $(".author-text").text("- " + res.author);
+      const res = JSON.parse(result)
+      $(".quote-text").text(res.quote)
+      $(".author-text").text("- " + res.author)
     })
+
+    // Handle's any error with request
     .fail((error) => {
-      console.log("Error: ", error);
-    });
-  };
+      console.log("Error: ", error)
+    })
+  }
 
-  const tweetQuote = () => {
-    const tweetText = $(".quote-text").text();
-    const tweetMovie = $(".author-text").text();
+  // Opens Twitter window to share the quote
+  function tweetQuote() {
+    const tweetText = $(".quote-text").text()
+    const tweetMovie = $(".author-text").text()
 
-    window.open("http://twitter.com/home?status=" + '"' + tweetText + '"' + ' ' + tweetMovie, "_blank");
-  };
+    window.open("http://twitter.com/home?status=" + '"' + tweetText + '"' + ' ' + tweetMovie, "_blank")
+  }
 
 
-  /*.........EVENT HANDLERS.........*/
+  /*=== EVENT HANDLERS ===*/
   $(".tweet-button").click(() => {
-    tweetQuote();
-  });
+    tweetQuote()
+  })
 
   $(".next-button").click(() => {
-    getQuote();
-  });
+    getQuote()
+  })
 
 
-  /*.........PAGE LOAD.........*/
-  getQuote();
-});
+  /*=== PAGE LOAD ===*/
+  getQuote()
+})
