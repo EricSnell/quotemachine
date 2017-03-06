@@ -22,8 +22,18 @@ $(document).ready(() => {
     // When result is returned, parse the JSON string (object) and display quote
     .done((result) => {
       const res = JSON.parse(result)
-      $(".quote-text").text(res.quote)
-      $(".author-text").text("- " + res.author)
+
+      $('.quote-text').fadeOut(function() {
+        $(this).text(res.quote).fadeIn(1000)
+      })
+
+      $('.author-text').fadeOut(function() {
+        let that = this
+        setTimeout(function() {
+          $(that).text('- ' + res.author).fadeIn(1000)
+        }, 1500)
+      })
+
     })
 
     // Handle's any error with request
